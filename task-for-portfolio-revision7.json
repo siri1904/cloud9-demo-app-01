@@ -84,6 +84,5 @@
     },
     "registeredAt": "2025-01-22T17:26:14.872Z",
     "registeredBy": "arn:aws:sts::586497755328:assumed-role/voclabs/user3756692=Test_Student",
-    "enableFaultInjection": false,
     "tags": []
 }
