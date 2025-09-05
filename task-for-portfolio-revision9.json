@@ -1,47 +1,50 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:586497755328:task-definition/task-for-portfolio:7",
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
     "containerDefinitions": [
         {
-            "name": "portfolio",
-            "image": "portfolio/latest",
             "cpu": 0,
-            "portMappings": [
-                {
-                    "name": "portfolio-3000-tcp",
-                    "containerPort": 3000,
-                    "hostPort": 3000,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                }
-            ],
-            "essential": true,
             "environment": [],
             "environmentFiles": [],
-            "mountPoints": [],
-            "volumesFrom": [],
-            "ulimits": [],
+            "essential": true,
+            "image": "portfolio:latest",
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-group": "/ecs/task-for-portfolio",
-                    "mode": "non-blocking",
                     "awslogs-create-group": "true",
-                    "max-buffer-size": "25m",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
             },
-            "systemControls": []
+            "mountPoints": [],
+            "name": "portfolio",
+            "portMappings": [
+                {
+                    "appProtocol": "http",
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "name": "portfolio-3000-tcp",
+                    "protocol": "tcp"
+                }
+            ],
+            "systemControls": [],
+            "ulimits": [],
+            "volumesFrom": []
         }
     ],
+    "cpu": "1024",
+    "enableFaultInjection": false,
+    "executionRoleArn": "arn:aws:iam::379402500969:role/LabRole",
     "family": "task-for-portfolio",
-    "taskRoleArn": "arn:aws:iam::586497755328:role/LabRole",
-    "executionRoleArn": "arn:aws:iam::586497755328:role/LabRole",
+    "memory": "3072",
     "networkMode": "awsvpc",
-    "revision": 7,
-    "volumes": [],
-    "status": "ACTIVE",
+    "placementConstraints": [],
+    "registeredAt": "2025-09-05T20:38:35.064Z",
+    "registeredBy": "arn:aws:sts::379402500969:assumed-role/voclabs/user4337284=Test_Student",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -51,9 +54,6 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
         },
         {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
@@ -68,21 +68,17 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "1024",
-    "memory": "3072",
+    "revision": 1,
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-01-22T17:26:14.872Z",
-    "registeredBy": "arn:aws:sts::586497755328:assumed-role/voclabs/user3756692=Test_Student",
+    "status": "ACTIVE",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:379402500969:task-definition/task-for-portfolio:1",
+    "taskRoleArn": "arn:aws:iam::379402500969:role/LabRole",
+    "volumes": [],
     "tags": []
 }
